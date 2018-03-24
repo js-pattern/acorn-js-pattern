@@ -5,8 +5,15 @@
 1.0 추상 팩토리와 빌더의 차이점
 - [디자인 패턴 builder](https://www.zerocho.com/category/JavaScript/post/57bab0ee5abe0c17006fe22f)
 
-1.1 빌더 사용시 Director는 필요한가?
-- 없어도 무방 직접 build 메소드를 호출해도 된다 (누군가 말씀하신거 같은데..추가 주석 좀)
+1.1 Builder Pattern 사용시 Director는 필요한가?
+- (https://github.com/js-pattern/acorn-js-pattern/blob/master/03_%EC%83%9D%EC%84%B1_%ED%8C%A8%ED%84%B4/y0c.md#%EB%B9%8C%EB%8D%94-%ED%8C%A8%ED%84%B4-%EB%8B%A4%EB%A5%B8-%EC%98%88%EC%A0%9C) 에서 Director 는 보이지 않음.
+- [Builder design pattern  why do we need a Director  - Stack Overflow](https://stackoverflow.com/questions/4313172/builder-design-pattern-why-do-we-need-a-director)
+  > The core portion of the Builder pattern concerns the Abstract Builder and its subclasses (concrete builders). According to GoF's Design Patterns, director simply "notifies the builder whenever a part of the product should be built", which can be perfectly done by the client.
+
+  > The StringBuilder class in the Java API is an example of a builder without the respective director -- typically the client class "directs" it.
+
+  > Also, in Effective Java and Creating and Destroying Java Objects, Joshua Bloch suggests the use of the builder pattern, and he does not include a director.
+
 
 1.2 AOP 가 뭔가요? (Aspect Oriented Programming)
 - 기능을 핵심 비지니스 로직과 공통 모듈(보안 인증, 로깅)로 구분하고, 핵심 로직에 영향을 미치지 않고 공통 모듈을 효과적으로 끼워넣기 위한 개발 방법
