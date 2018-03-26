@@ -3,7 +3,15 @@
 http://www.yes24.com/24/goods/29390656
 
 ## 인원
+
 6명
+
+ - [@jindev](https://github.com/jindev)
+ - [@jjingK](https://github.com/jjingK)
+ - [@t1t1](https://github.com/t1t1)
+ - [@Gwangyu-Kim](https://github.com/Gwangyu-Kim)
+ - [@goohooh](https://github.com/goohooh)
+ - [@y0c](https://github.com/y0c)
 
 ## 일정
 - 시작 : 3월 12일(월)
