@@ -22,6 +22,7 @@
 
 ### 코드예제
 * 실제 배의 인터페이스
+```javascript
 interface Ship{
 	SetRudderAngleTo(angle: number);
 	SetSailConfiguration(configuration: SailConfiguration);
@@ -30,14 +31,17 @@ interface Ship{
 	GetCurrentSpeedEstimate(): number;
 	ShiftCrewWeightTo(weightToShift: number, locationId: number);
 }
+```
 * 추상화 한 인터페이스
+```javascript
 interface SimpleShip{
 	TurnLeft();
 	TurnRight();
 	GoFoward();
 	}	//모든 세부사항들을 추상화한 인터페이스. 이를 통해 누구나 이해하고 읽기 쉬워짐
-
+```
 * 어댑터 코드 ( SimpleShip 인터페이스를 가지지만, 실제론 래핑된 Ship인스턴스서 동작함)
+```javascript
 var ShipAdapter = (function() {
 	funtion ShipAdapter() {
 	this._ship = new Ship();
@@ -55,21 +59,23 @@ var ShipAdapter = (function() {
 		}
 	return ShipAdapter;
 })();	//라이브러리 코드를 빌드 할 때, 적응자는 내부 메소드를 마스킹하여 사용자에게 필요한 제한된 함수만을 보여줌.
-
+```
 * 패턴 사용 코드
+```javascript
 var ship = new ShipAdapter();
 ship.goForward();
 ship.TurnLeft();
-
-** 적응자는 코드 인터페이스를 단순화 할 수 있는 매우 강력한 패턴.
-** 라이브러리를 적응자로 래핑하여 직접호출해야 하는 경우를 줄일 수 있다.
-** 적응자 패턴을 변형하면 여러 다른 구현에서 일관된 인터페이스를 제공할 수 있다. 이는 가교패턴으로 알려져 있음
+```
+- 적응자는 코드 인터페이스를 단순화 할 수 있는 매우 강력한 패턴.
+- 라이브러리를 적응자로 래핑하여 직접호출해야 하는 경우를 줄일 수 있다.
+- 적응자 패턴을 변형하면 여러 다른 구현에서 일관된 인터페이스를 제공할 수 있다. 이는 가교패턴으로 알려져 있음
 
 ## 가교(Bridge) 패턴
 하나의 인터페이스를 가지고 각각이 다른 구현의 중간자 역할을 하는 여러 적응자를 만들 수 있음 ex.)장애방지 구성에 사용되는 두 개의 서로 다른 서비스
 적응자는 일관된 인터페이스를 제공.
 
 ### 구현 코드
+```javascript
 var OldGods = (function() {
 	function OldGods(){
 	}
@@ -174,7 +180,7 @@ var Religion = Westeros.Religion;
 //일관된 인터페이스를 제공(prayTo)해 동일하게 취급할 수 있음.
 //인터페이스가 달랐다면 prayTo(~~)안에 파라미터를 선언해줘야 했을 것. > 코드의 복잡성 & 강한 연결정도를 띄었을 것.
 //팩토리 메소드 패턴과 동일하게 사용할 수 있음
-
+```
 > At first sight, the Bridge pattern looks a lot like the Adapter pattern in that a class is used to convert one kind of interface to another.
 > However, the intent of the Adapter pattern is to make one or more classes' interfaces look the same as that of a particular class.
 > The Bridge pattern is designed to separate a class's interface from its implementation
@@ -192,6 +198,7 @@ var Religion = Westeros.Religion;
 
 ### 구현
 * 리프노드 구현
+```javascript
 var SimpleIngredient = (function (){
 	function SimpleIngredient(name, calories, ironContent, vitaminCContent){
 		this.name = name;
@@ -267,7 +274,7 @@ var CompoundIngredient = (function() {//리프노드들을 이용하여 합칠 �
 	//복합체는 트리구조기 때문에, 노드를 다루기 쉬움.
 	//단일객체(노드)와 복합체도 한종류의 클래스로 설계. 복합체를 단일객체로도 다룰 수 있는 구조로 설계해서 똑같은 인터페이스로 똑같이 다룰 수 있게 함.
 	//복합객체와 단일객체에 할 수 있는 모든 기능을 인터페이스로 약속해놔야지 사용 가능함.
-
+```
 ## 장식자(Decorator) 패턴
 기존의 클래스를 포장하거나 확장하는 데 사용됨
 기존 컴포넌트의 서브클래싱의 대안으로 사용됨
@@ -276,6 +283,7 @@ var CompoundIngredient = (function() {//리프노드들을 이용하여 합칠 �
 * 명시적으로 코드를 작성하기가 쉽지 않을 때, 장식자 패턴을 사용해서 전달되는 파라미터 변경하거나 래핑된 인스턴스를 호출하기 전에 추가적 동작 수행.
 
 ### 구현 코드
+```javascript
 var BasicArmor = (function() {
 		function BasicArmor(){
 		}
@@ -305,12 +313,13 @@ var ChainMail = function(){
 Armor.ChainMail = ChainMail;
 
 //기능 확장이 필요할 때 서브클래싱 대신 사용할 수 있는 유용패턴
-** 참고 : http://jusungpark.tistory.com/9
+```
+- 참고 : http://jusungpark.tistory.com/9
 
 
 ## 퍼사드(Facade)
 * 클래스 집합의 간략화된 인터페이스를 제공, Adapter 패턴과 사용은 동일한데, 전체에 제공할 때 사용한다고 보면 될듯
-** 퍼사드 뜻이 정면,표면 > 외관에 간략화된 인터페이스를 제공
+- 퍼사드 뜻이 정면,표면 > 외관에 간략화된 인터페이스를 제공
 * 다형성이 필요할 땐 어댑터를 쓴다고 위키가 얘기함
 API를 다룰 때 매우 유용한 추상화 방법.
 * 세분화된 API에 퍼사드를 사용하면 쉬운 인터페이스를 만들 수 있음.
@@ -320,6 +329,7 @@ API를 다룰 때 매우 유용한 추상화 방법.
 * 객체의 생성 비용이 많이 들 때 사용한다. > 데이터 리소스절약 하는 구조 패턴.
 
 ### 구현코드
+```javascript
 var Soldier = (function () {
 	function Soldier() {
 		this.Health = 10;
@@ -335,7 +345,7 @@ var Soldier = (function(){
 	Soldier.prototype.FightingAbility = 5;
 	Soldier.prototype.Hunger = 0;
 	});
-
+```
 ## 프록시
 객체를 생성하는 비용이 비싸므로, 객체의 생성 및 사용을 제어할 수 있는 방법으로 프록시 패턴을 보임.
 프록시패턴은 실제 인스턴스의 인터페이스를 미러링함.
@@ -349,24 +359,26 @@ var Soldier = (function(){
  > 추가기능 삽입하여 유혀성검사, 결과변경등 포함
 
 ### 구현 코드
-	var BarrelCalculator = (function (){
-		function BarrelCalculator() {
-		}
-		BarrelCalculator.prototype.calculateNumberNeeded = function(volume) {
-			return Math.ceil(volume/357);
-		}
-		return BarrelCalculator;
-		}) ();
+```javascript
+var BarrelCalculator = (function (){
+	function BarrelCalculator() {
+	}
+	BarrelCalculator.prototype.calculateNumberNeeded = function(volume) {
+		return Math.ceil(volume/357);
+	}
+	return BarrelCalculator;
+	}) ();
 
-	//프록시 코드
-	var DragonarrelCalculator = (function (){
-		function DragonBarrelCalculator(){
+//프록시 코드
+var DragonarrelCalculator = (function (){
+	function DragonBarrelCalculator(){
 
-		}
-		DragonBarrelCalculator.prototype.calculateNumberNeeded = function(volume){
-			if(this._barrelCalculator ==null)
-				this>_barrelCalculator = new BarrelCalculator();
-				retrun this._barrelCalculator.calculateNumberNeeded(volume * .77);
-		}
-		return DragonarrelCalculator;
-		})();
+	}
+	DragonBarrelCalculator.prototype.calculateNumberNeeded = function(volume){
+		if(this._barrelCalculator ==null)
+			this>_barrelCalculator = new BarrelCalculator();
+			retrun this._barrelCalculator.calculateNumberNeeded(volume * .77);
+	}
+	return DragonarrelCalculator;
+	})();
+```
