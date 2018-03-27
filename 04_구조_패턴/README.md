@@ -15,6 +15,7 @@
      - [goohooh.md](goohooh.md)
      - [브리지 패턴 - 위키백과, 우리 모두의 백과사전.html](https://ko.wikipedia.org/wiki/%EB%B8%8C%EB%A6%AC%EC%A7%80_%ED%8C%A8%ED%84%B4) BridgePattern 예제가 더 이해하는 데 좋아 보임.
      - JDBC(Oracle, MySQL) 도 이런식으로 구현 되어 있을 것 같음.
+       - 하나의 인터페이스를 각각 구현.
   1. Composite
      - [Gwangyu-Kim.md](Gwangyu-Kim.md)
      - (판서)
@@ -27,11 +28,16 @@
      - AOP
      - 빌더 패턴과 비슷한 면도 보임.
      - Subclassing 을 대체할 수 있음.
-     - OCP 를 
+     - OCP 에 위배되지 않도록 확장 할 수 있음.
      - JAVA Stream 
+       - [JAVA 정리 - File Input_Output _ 감성 프로그래밍.html](http://programmingsummaries.tistory.com/64)
      - 실제 활용되는 곳
         - [y0c.md](y0c.md)
      - 디버깅을 하기 어렵다는 단점이 있음.
+       - 데코레이터를 2개 이상 사용하지 말라고 제약을 두는 곳도 있음.
+     - HOC(higher-order components)
+       - [https://github.com/acdlite/recompose](https://github.com/acdlite/recompose)
+       - [React + Decorator + HOC = Fantastic!!.html](http://blog-kr.zoyi.co/react-hoc/)
   1. Facade
      - [jjingK.md](jjingK.md)
      - Jquery.ajax ? (.post() : .get())
