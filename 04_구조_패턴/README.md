@@ -1,8 +1,6 @@
 # 4. 구조 패턴
 
-
-
-## 질문
+## 정리
 
   1. Adapter
      - [goohooh.md](goohooh.md)
