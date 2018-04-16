@@ -2,6 +2,8 @@
 
 [Mastering JavaScript Design Patterns(자바스크립트 디자인 패턴 - 안정적이고 유지보수 가능한 강력한 애플리케이션 개발)](http://www.yes24.com/24/goods/29390656)
 
+[Mastering JavaScript Design Patterns _ PACKT Books](https://www.packtpub.com/application-development/mastering-javascript-design-patterns)
+
 | 사이먼 팀스 저 / 류영선 역 | 에이콘출판사 | 2016년 07월 28일 |
 
 ## 인원
