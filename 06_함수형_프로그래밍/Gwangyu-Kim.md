@@ -191,8 +191,16 @@ for(var i= 0; i< evenIds.length; i++){
 }
 ];
 ```
+>advantage
+Simplicity – Allows designer to understand overall input/output behavior of a system in terms of individual filters.
+Maintenance and reuse
+Concurrent Execution –Each filter can be implemented as a separate task and be executed in parallel with other filters.
 
-
+>disAdvantage
+Interactive transformations are difficult – Filters being independent entities designer has to think of each filter as providing a complete transformation of input data to output data.
+No filter cooperation.
+Performance – may force a lowest common denominator on data transmission
+[https://www.coursehero.com/file/p3ercbp/Pipe-and-Filter-Style-Advantages-and-Disadvantages-Advantages-Simplicity-Allows/]
 -------------------------
 
 ## 3.[어큐물레이터]
